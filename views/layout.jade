@@ -17,8 +17,6 @@ head
 				div.col-lg-8.menu-column
 					ul.main-menu
 						li
-							a(href='/Welcome') Welcome
-						li
 							a(href='/Creations') Creations
 						li
 							a(href='/Posts') Posts
@@ -51,4 +49,4 @@ head
 		script(type='text/javascript', src='./js/require.js')
 		script(type='text/javascript', src='./js/require-config.js')
 		script(type='text/javascript').
-			require(['Main'], function(Main, GooglePlus) { console.log('Okay', Main, GooglePlus); });
+			require(['Main', 'bootstrap']);

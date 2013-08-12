@@ -13,7 +13,6 @@ define(['angular',''], function(angular) {
 			var googlePlusUrl = 'https://www.googleapis.com/plus/v1/people/107744372254752109523/activities/public?&key=' + apiKey + '&fields=items(title,published,updated,url,actor,verb,object)&callback=define';
 
 			$scope.posts = [];
-			$scope.page = 'posts';
 
 			$scope.loadGooglePlus = function() {
 				require([googlePlusUrl], function(data) {

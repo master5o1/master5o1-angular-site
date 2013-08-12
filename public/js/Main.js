@@ -11,23 +11,23 @@ define(['angular', 'Controllers', 'Filters', 'Services', 'Directives'],
 		$routeProvider.
 			when('/', {
 				templateUrl: 'partials/Welcome',
-				controller: 'WelcomeCtrl'
-			}).
-			when('/Welcome', {
-				templateUrl: 'partials/Welcome',
-				controller: 'WelcomeCtrl'
+				controller: 'WelcomeCtrl',
+				reloadOnSearch: false
 			}).
 			when('/Creations', {
 				templateUrl: 'partials/Creations',
-				controller: 'CreationsCtrl'
+				controller: 'CreationsCtrl',
+				reloadOnSearch: false
 			}).
 			when('/Posts', {
 				templateUrl: 'partials/Posts',
-				controller: 'PostsCtrl'
+				controller: 'PostsCtrl',
+				reloadOnSearch: false
 			}).
 			when('/About', {
 				templateUrl: 'partials/About',
-				controller: 'AboutCtrl'
+				controller: 'AboutCtrl',
+				reloadOnSearch: false
 			}).
 			otherwise({
 				redirectTo: '/'
