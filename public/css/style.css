@@ -39,7 +39,8 @@ body {
 }
 
 .right-column .right-column-inner {
-	padding: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .left-column {
@@ -129,14 +130,14 @@ body {
 }
 
 .posts article {
-	margin: 20px 0 0;
-	padding: 20px 10px;
+	padding: 10px;
+	margin-bottom: 40px;
 	border: solid 1px #ddd;
 	background: #fff;
 }
 
 .posts article:first-child {
-	margin: 0;
+	margin-top: 40px;
 }
 
 .attachments {

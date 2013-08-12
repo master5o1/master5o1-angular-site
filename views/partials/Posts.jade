@@ -1,6 +1,6 @@
-div.right-column-inner
-	section.posts
-		article(ng-repeat="(key, post) in Posts")
+div.container
+	section.posts.row
+		article.col-lg-10.col-lg-offset-1(ng-repeat="(key, post) in Posts")
 			header
 				div.row
 					a.col-lg-1(href="{{ post.actor.url }}")
