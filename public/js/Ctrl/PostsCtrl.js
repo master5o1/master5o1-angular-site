@@ -16,28 +16,31 @@ define(['angular',''], function(angular) {
 
 			$scope.loadGooglePlus = function() {
 				require([googlePlusUrl], function(data) {
-					console.log(data);
 					$scope.Posts = data.items;
-					$scope.$apply();
+					apply();
 				});
 			};
 
 			$scope.LoadReplies = function(post) {
 				require([post.object.replies.selfLink + '?key=' + apiKey + '&callback=define'], function(data) {
-					console.log('replies', data.items);
 					$scope.Posts.map(function(p, i) {
 						if (p.url == post.url) {
 							p.object.replies.items = data.items;
 						}
 						return p;
 					});
-					$scope.$apply();
-					console.log('posts', $scope.Posts);
+					apply();
 				});
 			};
 
 			$scope.RepliesLoaded = function(post) {
 				return angular.isArray(post.object.replies.items);
+			};
+
+
+			var apply = function() {
+				console.log('Posts', $scope.Posts);
+				$scope.$apply();
 			};
 
 			var init = function() {
