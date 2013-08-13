@@ -129,16 +129,35 @@ body {
 .posts {
 }
 
-.posts article {
+.posts > article.post {
 	padding: 10px;
 	margin-bottom: 40px;
 	border: solid 1px #ddd;
 	background: #fff;
 }
 
-.posts article:first-child {
+.posts > article.post:first-child {
 	margin-top: 40px;
 }
+
+.replies {
+}
+
+.replies > article.reply {
+	background: #f1f1f1;
+}
+
+.replies > article.reply header {
+	margin-bottom: 15px;
+}
+
+.replies > article.reply:first-child header {
+	margin-top: 15px;
+}
+
+.plus-one.active { color: #dd4b39; }
+.shared-public { color: #888; }
+.padded-lr-5px { padding: 0 5px; }
 
 .attachments {
 	margin: 20px 0;
