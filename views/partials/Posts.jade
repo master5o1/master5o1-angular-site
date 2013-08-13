@@ -23,6 +23,15 @@ div.container
 							div.post-content(compile="post.object.content")
 				div.attachments
 					.attachment-item(ng-repeat="attachment in post.object.attachments")
+						div.container(ng-show="attachment.objectType == 'article'", style="text-align: left;")
+							a.col-lg-2(href="{{ attachment.url }}", target="_blank")
+								img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
+							div.col-lg-10
+								div.padded-lr-5px
+									a(href="{{ attachment.url }}", target="_blank")
+										strong {{ attachment.displayName }}
+								div.padded-lr-5px
+									a.grey(href="{{ attachment.url }}", target="_blank") {{ attachment.url }}
 						div(ng-show="attachment.objectType == 'album'", style="text-align: left;")
 							| Album: 
 							a(href="{{ attachment.url }}", target="_blank")

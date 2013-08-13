@@ -18,6 +18,10 @@
   src: local('Rochester'), local('Rochester-Regular'), url(../font/Rochester.woff) format('woff');
 }
 
+.grey {
+	color: #888;
+}
+
 body {
 	margin: 0;
 	padding: 0;
