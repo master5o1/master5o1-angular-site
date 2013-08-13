@@ -18,7 +18,10 @@ div.container
 							a(ng-show="post.object.replies.totalItems > 0", ng-click="LoadReplies(post)") {{ post.object.replies.totalItems }} repl{{ post.object.replies.totalItems != 1 && 'ies' || 'y' }}
 							|  &middot; {{ post.object.resharers.totalItems }} reshare{{ post.object.resharers.totalItems != 1 && 's' || '' }}
 			section
-				div.post-content(compile="post.object.content")
+				div.container
+					div.row
+						div.col-lg-10
+							div.post-content(compile="post.object.content")
 				div.attachments
 					.attachment-item(ng-repeat="attachment in post.object.attachments")
 						div(ng-show="attachment.objectType == 'album'", style="text-align: left;")

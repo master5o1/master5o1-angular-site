@@ -140,6 +140,10 @@ body {
 	margin-top: 40px;
 }
 
+.posts > article.post header {
+	margin-bottom: 10px;
+}
+
 .replies {
 }
 
