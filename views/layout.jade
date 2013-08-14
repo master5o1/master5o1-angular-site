@@ -1,5 +1,5 @@
 !!!
-html(lang='en', prefix='og: http://ogp.me/ns#')
+html(lang='en', prefix='og: http://ogp.me/ns#', ng-app='myApp')
 head
 		title Jason Schwarzenberger
 		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
@@ -44,7 +44,7 @@ head
 							i.icon-github-circled
 						a.btn.btn-lg(href='mailto:jason@master5o1.com')
 							i.icon-email
-				div.col-lg-8.right-column(ng-app='myApp')
+				div.col-lg-8.right-column
 					block body
 		script(type='text/javascript', src='./js/require.js')
 		script(type='text/javascript', src='./js/require-config.js')
