@@ -1,12 +1,4 @@
-/*
-
-define([googlePlusUrl], function(GooglePlus) {
-	return GooglePlus;
-});
-*/
-
-
-define(['angular',''], function(angular) {
+define(['angular'], function(angular) {
 	return function(app) {
 		return app.controller('PostsCtrl', function ($scope) {
 			var apiKey = 'AIzaSyD6waxLgpwHd0QXrExGwBMigr-01mQ4Lr4';
