@@ -29,7 +29,6 @@ define(['angular'], function(angular) {
 				return angular.isArray(post.object.replies.items);
 			};
 
-
 			var apply = function() {
 				console.log('Posts', $scope.Posts);
 				$scope.$apply();
