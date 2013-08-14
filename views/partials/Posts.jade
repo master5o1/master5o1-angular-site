@@ -63,3 +63,4 @@ div.container
 								span.shared-public {{ post.published | date:'medium' }} 
 								span.plus-one(class="{{ reply.plusoners.totalItems > 0 && 'active' || '' }}") +{{ reply.plusoners.totalItems || 1 }}
 							div.padded-lr-5px(compile="reply.object.content")
+
