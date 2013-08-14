@@ -1,4 +1,50 @@
 div.container
 	div.row
-		div.col-lg-10.col-lg-offset-1.right-column-inner.
-			This page hasn't been done yet. I'll try get it done soon.
+		div.col-lg-10.col-lg-offset-1
+			section.creations
+				article.right-column-inner.creation
+					header
+						h2 Website: Chris Corson-Scott
+						div.padded-ud-10px.grey
+							div
+								a(href="http://chriscorsonscott.com") chriscorsonscott.com
+							div.grey August 2012
+						p.padded-lr-5px.
+							Chris commissioned me to build his artist biographical website that would showcase his photographs. 
+							The project consisted of making a simple way of allowing Chris to add photographs to the website.
+							Images can be zoomed to show a very large version of the photograph.
+					div#creation-chris.carousel.slide
+						div.carousel-inner
+							div.item.active
+								a(href="http://chriscorsonscott.com")
+									img(src='/img/creation/chris-2.png', alt='Chris Corson Scott', style="max-width: 100%;")
+							div.item
+								a(href="http://chriscorsonscott.com")
+									img(src='/img/creation/chris-1.png', alt='Chris Corson Scott', style="max-width: 100%;")
+							div.item
+								a(href="http://chriscorsonscott.com")
+									img(src='/img/creation/chris-3.png', alt='Chris Corson Scott', style="max-width: 100%;")
+						a.left.carousel-control(href='#creation-chris', data-slide='prev')
+							span.icon-prev
+						a.right.carousel-control(href='#creation-chris', data-slide='next')
+							span.icon-next
+				article.right-column-inner.creation
+					header
+						h2 My Website
+						div.padded-ud-10px.grey
+							div
+								a(href="http://schwarzenberger.co.nz") schwarzenberger.co.nz
+							div
+								a(href="http://master5o1.com") master5o1.com
+							div.grey 2006 &mdash;
+						p.padded-lr-5px A learning experience that never ends.
+					div#creation-myself.carousel.slide
+						div.carousel-inner
+							div.item.active
+									img(src='/img/creation/website-1.png', alt='master5o1.com', style="max-width: 100%;")
+							div.item
+									img(src='/img/creation/website-2.png', alt='master5o1.com', style="max-width: 100%;")
+						a.left.carousel-control(href='#creation-myself', data-slide='prev')
+							span.icon-prev
+						a.right.carousel-control(href='#creation-myself', data-slide='next')
+							span.icon-next
