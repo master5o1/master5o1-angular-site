@@ -72,10 +72,19 @@ body {
 }
 
 .left-column {
-	min-height: 500px;
+	height: 500px;
 	padding-bottom: 20px;
 	background: rgba(0,0,0,0.75);
 	text-align: center;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+	.left-column {
+		height: 404px;
+	}
+	.right-column {
+		min-height: 404px;
+	}
 }
 
 .logo {
