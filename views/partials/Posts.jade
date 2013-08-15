@@ -1,11 +1,11 @@
 div.container
 	section.posts.row
-		article.post.col-lg-10.col-lg-offset-1(ng-repeat="(key, post) in Posts")
+		article.post.col-lg-10.col-lg-offset-1.col-sm-10.col-sm-offset-1(ng-repeat="(key, post) in Posts")
 			header
 				div.row
-					a.col-lg-1(href="{{ post.actor.url }}")
+					a.col-lg-1.col-sm-1(href="{{ post.actor.url }}")
 						img.img-circle(ng-src="{{ post.actor.image.url + '&sz=45' }}")
-					div.col-lg-11(style="height: 50px; line-height: 16px; padding-top: 1px;")
+					div.col-lg-11.col-sm-11(style="height: 50px; line-height: 16px; padding-top: 1px;")
 						div.padded-lr-5px
 							a(href="{{ post.actor.url }}") {{ post.actor.displayName }}
 						div.padded-lr-5px
@@ -19,14 +19,14 @@ div.container
 			section
 				div.container
 					div.row
-						div.col-lg-10
+						div.col-lg-10.col-sm-10
 							div.post-content(compile="post.object.content")
 				div.attachments
 					.attachment-item(ng-repeat="attachment in post.object.attachments")
 						div.container(ng-show="attachment.objectType == 'article'", style="text-align: left;")
-							a.col-lg-2(href="{{ attachment.url }}", target="_blank")
+							a.col-lg-2.col-lg-offset-2.col-sm-2.col-sm-offset-2(href="{{ attachment.url }}", target="_blank")
 								img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
-							div.col-lg-10
+							div.col-lg-8.col-sm-8
 								div.padded-lr-5px
 									a(href="{{ attachment.url }}", target="_blank")
 										strong {{ attachment.displayName }}
@@ -45,7 +45,7 @@ div.container
 							a(href="{{ attachment.url }}", target="_blank")
 								strong {{ attachment.displayName || 'Watch Video' }}
 						div(ng-show="attachment.objectType == 'video' && !!attachment.embed")
-							iframe(ng-src="{{ attachment.embed.url }}", style="border: none;", width="{{ attachment.image.width }}", height="{{ attachment.image.height }}")
+							iframe(ng-src="{{ attachment.embed.url }}", style="border: none; max-width: 100%;", width="{{ attachment.image.width }}", height="{{ attachment.image.height }}")
 						div(ng-show="attachment.objectType == 'video' && !attachment.embed")
 							a(href="{{ attachment.url }}")
 								img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
@@ -53,11 +53,11 @@ div.container
 				div.container(style="text-align: center;")
 					a.btn.btn-primary(ng-click="LoadReplies(post)") Load {{ post.object.replies.totalItems }} Repl{{ post.object.replies.totalItems != 1 && 'ies' || 'y' }}
 			section.replies.row(ng-show="RepliesLoaded(post)")
-				article.reply.col-lg-10.col-lg-offset-1(ng-repeat="reply in post.object.replies.items")
+				article.reply.col-lg-10.col-lg-offset-1.col-sm-10.col-sm-offset-1(ng-repeat="reply in post.object.replies.items")
 					header.row
-						a.col-lg-1(href="{{ reply.actor.url }}")
+						a.col-lg-1.col-sm-1(href="{{ reply.actor.url }}")
 							img.img-round(ng-src="{{ reply.actor.image.url + '&sz=35' }}")
-						div.col-lg-11
+						div.col-lg-11.col-sm-11
 							div.padded-lr-5px
 								a(href="{{ reply.actor.url }}") {{ reply.actor.displayName }} 
 								span.shared-public {{ post.published | date:'medium' }} 
