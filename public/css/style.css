@@ -52,6 +52,7 @@ body {
 	font-size: 13px;
 	font-family: 'Ubuntu', sans-serif;
 	background: url(/img/background-herp.png);
+	background-attachment: fixed;
 }
 
 #viewport {
