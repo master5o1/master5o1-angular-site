@@ -10,7 +10,7 @@ div.container
 							a(href="{{ post.actor.url }}") {{ post.actor.displayName }}
 						div.padded-lr-5px
 							span.shared-public Shared Publicly &mdash; 
-							a(href="{{ post.url }}") {{ post.published | date:'medium' }}
+							a(href="{{ post.url }}") {{ post.published | date:'MMM d, y h:mm a' }}
 						div.padded-lr-5px
 							span.plus-one(class="{{ post.object.plusoners.totalItems > 0 && 'active' || '' }}") +{{ post.object.plusoners.totalItems || 1 }}
 							|  &middot; 
@@ -23,35 +23,54 @@ div.container
 							div.post-content(compile="post.object.content")
 				div.attachments
 					.attachment-item(ng-repeat="attachment in post.object.attachments")
+						// Link to a website:
 						div.container(ng-show="attachment.objectType == 'article'", style="text-align: left;")
-							a.col-lg-2.col-lg-offset-2.col-sm-2.col-sm-offset-2(href="{{ attachment.url }}", target="_blank")
-								img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
-							div.col-lg-8.col-sm-8
+							a.col-lg-3.col-sm-3.col-lg-offset-1.col-sm-offset-1(href="{{ attachment.url }}", target="_blank")
+								img(ng-src="{{ attachment.fullImage.url }}", style="max-width: 100%;")
+							div.col-lg-7.col-sm-7
 								div.padded-lr-5px
 									a(href="{{ attachment.url }}", target="_blank")
 										strong {{ attachment.displayName }}
 								div.padded-lr-5px
 									a.grey(href="{{ attachment.url }}", target="_blank") {{ attachment.url }}
-						div(ng-show="attachment.objectType == 'album'", style="text-align: left;")
-							| Album: 
-							a(href="{{ attachment.url }}", target="_blank")
-								strong {{ attachment.displayName || 'View Album' }}
-						a(ng-show="attachment.objectType == 'photo'", href="{{ attachment.url }}", target="_blank")
-							img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
-						a(ng-show="attachment.objectType == 'album'", href="{{ attachment.thumbnails[0].url }}", target="_blank", style="display: block;")
-							img(ng-src="{{ attachment.thumbnails[0].image.url }}", style="max-width: 100%;")
-						div(ng-show="attachment.objectType == 'video'", style="text-align: left;")
-							| Video: 
-							a(href="{{ attachment.url }}", target="_blank")
-								strong {{ attachment.displayName || 'Watch Video' }}
-						div(ng-show="attachment.objectType == 'video' && !!attachment.embed")
-							iframe(ng-src="{{ attachment.embed.url }}", style="border: none; max-width: 100%;", width="{{ attachment.image.width }}", height="{{ attachment.image.height }}")
+								div.padded-lr-5px.grey(compile="attachment.content")
+						// Google+ uploaded video:
 						div(ng-show="attachment.objectType == 'video' && !attachment.embed")
-							a(href="{{ attachment.url }}")
+							h3
+								a(href="{{ attachment.url }}", target="_blank")
+									strong {{ attachment.displayName || 'Watch Video' }}
+							div
+								a(href="{{ attachment.url }}")
+									img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
+						// YouTube video, etc:
+						div.container(ng-show="attachment.objectType == 'video' && !!attachment.embed", style="text-align: left;")
+							a.col-lg-3.col-sm-3.col-lg-offset-1.col-sm-offset-1(href="{{ attachment.url }}", target="_blank")
+								img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
+							div.col-lg-7.col-sm-7
+								div.padded-lr-5px
+									a(href="{{ attachment.url }}", target="_blank")
+										strong {{ attachment.displayName }}
+								div.padded-lr-5px
+									a.grey(href="{{ attachment.url }}", target="_blank") {{ attachment.url }}
+								div.padded-lr-5px.grey(compile="attachment.content")
+						//
+							div(ng-show="attachment.objectType == 'video' && !!attachment.embed")
+								iframe(ng-src="{{ attachment.embed.url }}", style="border: none; max-width: 100%;", width="{{ attachment.image.width }}", height="{{ attachment.image.height }}")
+						// Photo Album:
+						div(ng-show="attachment.objectType == 'album'")
+							h3
+								a(href="{{ attachment.url }}", target="_blank")
+									strong {{ attachment.displayName || 'View Album' }}
+							div
+								a(href="{{ attachment.thumbnails[0].url }}", target="_blank", style="display: block;")
+									img(ng-src="{{ attachment.thumbnails[0].image.url }}", style="max-width: 100%;")
+						// Single Photo:
+						div(ng-show="attachment.objectType == 'photo'")
+							a(href="{{ attachment.url }}", target="_blank")
 								img(ng-src="{{ attachment.image.url }}", style="max-width: 100%;")
 			section.show-replies(ng-show="post.object.replies.totalItems > 0 && !RepliesLoaded(post)")
 				div.container(style="text-align: center;")
-					a.btn.btn-primary(ng-click="LoadReplies(post)") Load {{ post.object.replies.totalItems }} Repl{{ post.object.replies.totalItems != 1 && 'ies' || 'y' }}
+					a.btn.btn-primary(ng-click="LoadReplies(post)") Load Repl{{ post.object.replies.totalItems != 1 && 'ies' || 'y' }}
 			section.replies.row(ng-show="RepliesLoaded(post)")
 				article.reply.col-lg-10.col-lg-offset-1.col-sm-10.col-sm-offset-1(ng-repeat="reply in post.object.replies.items")
 					header.row
@@ -60,7 +79,7 @@ div.container
 						div.col-lg-11.col-sm-11
 							div.padded-lr-5px
 								a(href="{{ reply.actor.url }}") {{ reply.actor.displayName }} 
-								span.shared-public {{ post.published | date:'medium' }} 
+								span.shared-public {{ post.published | date:'MMM d, y h:mm a' }} 
 								span.plus-one(class="{{ reply.plusoners.totalItems > 0 && 'active' || '' }}") +{{ reply.plusoners.totalItems || 1 }}
 							div.padded-lr-5px(compile="reply.object.content")
 
