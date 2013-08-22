@@ -9,17 +9,17 @@ div.container
 						div.padded-lr-5px
 							a(href="{{ post.actor.url }}") {{ post.actor.displayName }}
 						div.padded-lr-5px
-							span.shared-public Shared Publicly &mdash; 
+							span.shared-public Shared Publicly &mdash;
 							a(href="{{ post.url }}") {{ post.published | date:'MMM d, y h:mm a' }}
 						div.padded-lr-5px
 							span.plus-one(class="{{ post.object.plusoners.totalItems > 0 && 'active' || '' }}") +{{ post.object.plusoners.totalItems || 1 }}
-							|  &middot; 
+							|  &middot;
 							span {{ post.object.replies.totalItems }} repl{{ post.object.replies.totalItems != 1 && 'ies' || 'y' }}
 							|  &middot; {{ post.object.resharers.totalItems }} reshare{{ post.object.resharers.totalItems != 1 && 's' || '' }}
 			section
 				div.container
 					div.row
-						div.col-lg-10.col-sm-10
+						div.col-lg-10.col-sm-10.col-lg-offset-1.col-sm-offset-1
 							div.post-content(compile="post.object.content")
 				div.attachments
 					.attachment-item(ng-repeat="attachment in post.object.attachments")
@@ -78,8 +78,8 @@ div.container
 							img.img-round(ng-src="{{ reply.actor.image.url + '&sz=35' }}")
 						div.col-lg-11.col-sm-11
 							div.padded-lr-5px
-								a(href="{{ reply.actor.url }}") {{ reply.actor.displayName }} 
-								span.shared-public {{ post.published | date:'MMM d, y h:mm a' }} 
+								a(href="{{ reply.actor.url }}") {{ reply.actor.displayName }}
+								span.shared-public {{ post.published | date:'MMM d, y h:mm a' }}
 								span.plus-one(class="{{ reply.plusoners.totalItems > 0 && 'active' || '' }}") +{{ reply.plusoners.totalItems || 1 }}
 							div.padded-lr-5px(compile="reply.object.content")
 
