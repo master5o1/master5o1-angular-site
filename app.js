@@ -4,13 +4,12 @@
  */
 
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
-  http = require('http'),
-  path = require('path');
+    routes = require('./routes'),
+    api = require('./routes/api'),
+    http = require('http'),
+    path = require('path');
 
 var app = module.exports = express();
-
 
 /**
  * Configuration
@@ -28,13 +27,13 @@ app.use(app.router);
 
 // development only
 app.configure('development', function(){
-  app.use(express.errorHandler());
-  app.locals.pretty = true;
+    app.use(express.errorHandler());
+    app.locals.pretty = true;
 });
 
 // production only
 app.configure('production', function(){
-  app.locals.pretty = false;
+    app.locals.pretty = false;
 });
 
 
@@ -58,5 +57,5 @@ app.get('*', routes.index);
  */
 
 http.createServer(app).listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });
